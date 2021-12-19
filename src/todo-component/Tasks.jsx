@@ -58,7 +58,7 @@ export default function Tasks() {
   const doneTask = async (task) => {
     try {
       await axios.put(
-        "https://functions-custom-tyagi.harperdbcloud.com/api/saveTask",
+        "https://functions-custom-tyagi.harperdbcloud.com/ToDoApi/saveTask",
         {
           taskTitle: task.taskTitle,
           operation: "sql",
