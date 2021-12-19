@@ -26,7 +26,7 @@ export default function Tasks() {
     if (taskName.length > 0) {
       try {
         await axios.post(
-          "https://functions-cust-fun-tyagi.harperdbcloud.com/api/saveTask",
+          "https://functions-custom-tyagi.harperdbcloud.com/ToDoApi/saveTask",
           { taskTitle: taskName, taskStatus: "ACTIVE", operation: "sql" }
         );
         getTasks();
@@ -40,7 +40,7 @@ export default function Tasks() {
     if (taskName.length > 0) {
       try {
         await axios.put(
-          "https://functions-cust-fun-tyagi.harperdbcloud.com/api/saveTask",
+          "https://functions-custom-tyagi.harperdbcloud.com/ToDoApi/saveTask",
           {
             taskTitle: taskName,
             operation: "sql",
@@ -58,7 +58,7 @@ export default function Tasks() {
   const doneTask = async (task) => {
     try {
       await axios.put(
-        "https://functions-cust-fun-tyagi.harperdbcloud.com/api/saveTask",
+        "https://functions-custom-tyagi.harperdbcloud.com/api/saveTask",
         {
           taskTitle: task.taskTitle,
           operation: "sql",
@@ -75,7 +75,7 @@ export default function Tasks() {
   const deleteTask = async (task) => {
     try {
       await axios.delete(
-        `https://functions-cust-fun-tyagi.harperdbcloud.com/api/deleteTask/${task.id}`
+        `https://functions-custom-tyagi.harperdbcloud.com/ToDoApi/deleteTask/${task.id}`
       );
       getTasks();
     } catch (ex) {
@@ -103,7 +103,7 @@ export default function Tasks() {
   const getTasks = async () => {
     try {
       const res = await axios.get(
-        "https://functions-cust-fun-tyagi.harperdbcloud.com/api/tasks"
+        "https://functions-custom-tyagi.harperdbcloud.com/ToDoApi/tasks"
       );
       console.log(res);
       setTaskList(res.data);
